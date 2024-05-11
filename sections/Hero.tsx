@@ -40,7 +40,7 @@ export default function HeroFlats({
   ],
 }: Props) {
   return (
-    <nav class="lg:container lg:mx-auto mx-4">
+    <nav class="lg:mx-auto bg-cookie-cat bg-primary h-screen w-full">
       <div class="flex flex-col items-center gap-8">
         <div
           class={`flex w-full xl:container xl:mx-auto py-20 mx-5 md:mx-10 z-10 ${
