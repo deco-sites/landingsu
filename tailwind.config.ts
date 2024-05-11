@@ -10,6 +10,9 @@ export default {
       animation: {
         sliding: "sliding 30s linear infinite",
       },
+      backgroundImage: {
+        "cookie-cat": "url(https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9176/5ff48252-93a1-4c93-9b05-d54df89a9f6a)"
+      },
       keyframes: {
         sliding: {
           "0%": { transform: "translateX(0)" },
