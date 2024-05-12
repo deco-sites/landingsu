@@ -19,6 +19,7 @@ export interface Props {
    */
   description?: string;
   image?: ImageWidget;
+  politicianImage?: ImageWidget;
   placement?: "left" | "right";
   cta?: CTA[];
 }
@@ -33,6 +34,7 @@ export default function HeroFlats({
   description =
     "This text is fully editable and ready for your personal touch. Just click here, head over to the section window, or dive straight into the code to make changes as you see fit. Whether it's about the content, formatting, font, or anything in between, editing is just a click away.",
   image,
+  politicianImage,
   placement = "left",
   cta = [
     { id: "change-me-1", href: "/", text: "Change me", outline: false },
@@ -49,6 +51,17 @@ export default function HeroFlats({
               : "flex-col items-center justify-center text-center"
           } lg:py-36 gap-12 md:gap-20 items-center`}
         >
+          {politicianImage && (
+            <Image
+              width={640}
+              class="w-full lg:w-1/2 object-fit"
+              sizes="(max-width: 640px) 100vw, 30vw"
+              src={politicianImage}
+              alt={politicianImage}
+              decoding="async"
+              loading="lazy"
+            />
+          )}
           {image && (
             <Image
               width={640}
