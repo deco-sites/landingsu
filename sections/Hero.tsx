@@ -1,27 +1,18 @@
 import type { ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
 
-export interface CTA {
-  id?: string;
-  href: string;
-  text: string;
-  outline?: boolean;
-}
-
 export interface Props {
   /**
    * @format rich-text
    * @default Click here to tweak this text however you want.
    */
-  title?: string;
+  politicalNumber?: number;
+  role?: string;
   /**
    * @default This text is fully editable and ready for your personal touch. Just click here, head over to the section window, or dive straight into the code to make changes as you see fit. Whether it's about the content, formatting, font, or anything in between, editing is just a click away.
    */
-  description?: string;
-  image?: ImageWidget;
-  politicianImage?: ImageWidget;
-  placement?: "left" | "right";
-  cta?: CTA[];
+  campaignLogo?: ImageWidget;
+  politician?: ImageWidget;
 }
 
 const PLACEMENT = {
@@ -30,84 +21,67 @@ const PLACEMENT = {
 };
 
 export default function HeroFlats({
-  title = "Click here to tweak this text however you want.",
-  description =
-    "This text is fully editable and ready for your personal touch. Just click here, head over to the section window, or dive straight into the code to make changes as you see fit. Whether it's about the content, formatting, font, or anything in between, editing is just a click away.",
-  image,
-  politicianImage,
-  placement = "left",
-  cta = [
-    { id: "change-me-1", href: "/", text: "Change me", outline: false },
-    { id: "change-me-2", href: "/", text: "Change me", outline: true },
-  ],
+  politicalNumber = 4564,
+  role = "mayor",
+  campaignLogo,
+  politician,
 }: Props) {
   return (
-    <nav class="lg:mx-auto bg-cookie-cat bg-primary h-screen w-full">
-      <div class="flex flex-col items-center gap-8">
-        <div
-          class={`flex w-full xl:container xl:mx-auto py-20 mx-5 md:mx-10 z-10 ${
-            image
-              ? PLACEMENT[placement]
-              : "flex-col items-center justify-center text-center"
-          } lg:py-36 gap-12 md:gap-20 items-center`}
-        >
-          {politicianImage && (
-            <Image
-              width={640}
-              class="w-full lg:w-1/2 object-fit"
-              sizes="(max-width: 640px) 100vw, 30vw"
-              src={politicianImage}
-              alt={politicianImage}
-              decoding="async"
-              loading="lazy"
-            />
-          )}
-          {image && (
-            <Image
-              width={640}
-              class="w-full lg:w-1/2 object-fit"
-              sizes="(max-width: 640px) 100vw, 30vw"
-              src={image}
-              alt={image}
-              decoding="async"
-              loading="lazy"
-            />
-          )}
-          <div
-            class={`mx-6 lg:mx-auto lg:w-full space-y-4 gap-4 ${
-              image
-                ? "lg:w-1/2 lg:max-w-xl"
-                : "flex flex-col items-center justify-center lg:max-w-3xl"
-            }`}
-          >
-            <div
-              class="inline-block lg:text-[80px] text-4xl leading-none font-medium"
-              dangerouslySetInnerHTML={{
-                __html: title,
-              }}
-            >
-            </div>
-            <p class="text-lg md:text-md leading-[150%]">
-              {description}
-            </p>
-            <div class="flex items-center gap-3">
-              {cta?.map((item) => (
-                <a
-                  key={item?.id}
-                  id={item?.id}
-                  href={item?.href}
-                  target={item?.href.includes("http") ? "_blank" : "_self"}
-                  class={`font-normal btn btn-primary ${
-                    item.outline && "btn-outline"
-                  }`}
-                >
-                  {item?.text}
-                </a>
-              ))}
-            </div>
+    <nav class="lg:mx-auto box-border bg-cookie-cat bg-primary min-h-screen w-full text-secondary">
+      <div class="flex flex-col items-center gap-8 p-16">
+        <div class="flex flex-col w-full gap-8 md:items-end items-center">
+          <Image
+            width={640}
+            class="w-full lg:w-1/2 object-fit"
+            sizes="(max-width: 640px) 100vw, 30vw"
+            src={campaignLogo}
+            alt={campaignLogo}
+            decoding="async"
+            loading="lazy"
+          />
+          <p class="text-4xl	uppercase">for {role}</p>
+        </div>
+
+        <div>
+          <Image
+            width={640}
+            class="w-full lg:w-1/2 object-fit"
+            sizes="(max-width: 640px) 100vw, 30vw"
+            src={politician}
+            alt={politician}
+            decoding="async"
+            loading="lazy"
+          />
+          <div class="flex flex-col gap-4  uppercase">
+            <span class="text-3xl">vote</span>
+            <span class="text-5xl">{politicalNumber}</span>
           </div>
         </div>
+        <div class="lg:py-36 gap-12 md:gap-20 items-center">
+          {politician && (
+            <Image
+              width={640}
+              class="w-full lg:w-1/2 object-fit"
+              sizes="(max-width: 640px) 100vw, 30vw"
+              src={politician}
+              alt={politician}
+              decoding="async"
+              loading="lazy"
+            />
+          )}
+          {campaignLogo && (
+            <Image
+              width={640}
+              class="w-full lg:w-1/2 object-fit"
+              sizes="(max-width: 640px) 100vw, 30vw"
+              src={campaignLogo}
+              alt={campaignLogo}
+              decoding="async"
+              loading="lazy"
+            />
+          )}
+        </div>
       </div>
-    </nav>
+    </nav >
   );
 }
