@@ -31,21 +31,22 @@ export default function Header({
   },
 }: Nav) {
   return (
-    <nav class="drawer drawer-end absolute left-0 top-0 h-fit z-20 w-full box-border bg-cookie-cat bg-primary">
+    <nav class="absolute left-0 top-0 h-fit z-20 w-full box-border bg-cookie-cat bg-primary">
       <input id="mobile-drawer-nav" type="checkbox" class="drawer-toggle" />
 
       {/* main content */}
-      <div class="drawer-content container lg:px-0 px-4 flex gap-8 items-center justify-between py-4">
-        <a href="/">
-          <Image class="h-fit max-w-16" src={logo.src || ""} alt={logo.alt} />
-        </a>
-
+      <div class="drawer-content container px-4 flex gap-8 items-center justify-between py-4">
         <label
           htmlFor="mobile-drawer-nav"
           class="flex btn btn-ghost drawer-button"
         >
           <Icon id="Bars3" size={24} strokeWidth={0.1} />
         </label>
+
+        <a href="/">
+          <Image class="h-fit max-w-16" src={logo.src || ""} alt={logo.alt} />
+        </a>
+
       </div>
 
       {/* sidebar */}
@@ -57,7 +58,7 @@ export default function Header({
           class="drawer-overlay"
         />
 
-        <div class="flex flex-col gap-8 min-h-full w-80 bg-base-100 text-base-content bg-cookie-cat">
+        <div class="drawer flex flex-col gap-8 min-h-full w-80 bg-base-100 text-base-content bg-cookie-cat">
           <a class="p-4" href="/">
             <Image class="h-fit max-w-16" src={logo.src || ""} alt={logo.alt} />
           </a>
