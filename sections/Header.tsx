@@ -2,13 +2,6 @@ import type { ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
 import Icon from "../components/ui/Icon.tsx";
 
-export interface CTA {
-  id?: string;
-  href: string;
-  text: string;
-  outline?: boolean;
-}
-
 export interface Nav {
   logo?: {
     src?: ImageWidget;
@@ -19,7 +12,6 @@ export interface Nav {
       label?: string;
       url?: string;
     }[];
-    buttons: CTA[];
   };
 }
 
@@ -36,14 +28,10 @@ export default function Header({
       { label: "Princing", url: "/" },
       { label: "Contact", url: "/" },
     ],
-    buttons: [
-      { id: "change-me-1", href: "/", text: "Change me", outline: false },
-      { id: "change-me-2", href: "/", text: "Change me", outline: true },
-    ],
   },
 }: Nav) {
   return (
-    <nav class="absolute left-0 top-0 h-fit z-20 w-full box-border bg-cookie-cat bg-primary">
+    <nav class="drawer drawer-end absolute left-0 top-0 h-fit z-20 w-full box-border bg-cookie-cat bg-primary">
       <input id="mobile-drawer-nav" type="checkbox" class="drawer-toggle" />
 
       {/* main content */}
@@ -52,40 +40,9 @@ export default function Header({
           <Image class="h-fit max-w-16" src={logo.src || ""} alt={logo.alt} />
         </a>
 
-        <div class="hidden items-center justify-between lg:flex w-full">
-          <ul class="flex">
-            {navigation.links.map((link) => (
-              <li>
-                <a
-                  href={link.url}
-                  aria-label={link.label}
-                  class="link no-underline hover:underline p-4"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ul class="flex gap-3">
-            {navigation.buttons?.map((item) => (
-              <a
-                key={item?.id}
-                id={item?.id}
-                href={item?.href ?? "#"}
-                target={item?.href.includes("http") ? "_blank" : "_self"}
-                class={`font-normal btn btn-primary ${
-                  item.outline && "btn-outline"
-                }`}
-              >
-                {item?.text}
-              </a>
-            ))}
-          </ul>
-        </div>
-
         <label
           htmlFor="mobile-drawer-nav"
-          class="flex lg:hidden btn btn-ghost drawer-button"
+          class="flex btn btn-ghost drawer-button"
         >
           <Icon id="Bars3" size={24} strokeWidth={0.1} />
         </label>
@@ -122,9 +79,8 @@ export default function Header({
                 id={item?.id}
                 href={item?.href ?? "#"}
                 target={item?.href.includes("http") ? "_blank" : "_self"}
-                class={`font-normal btn btn-primary ${
-                  item.outline && "btn-outline"
-                }`}
+                class={`font-normal btn btn-primary ${item.outline && "btn-outline"
+                  }`}
               >
                 {item?.text}
               </a>
