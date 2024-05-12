@@ -6,30 +6,26 @@ export interface Props {
    * @format rich-text
    * @default Click here to tweak this text however you want.
    */
-  politicalNumber?: number;
   role?: string;
+  politicalNumber?: number;
+  campaignLogo?: ImageWidget;
+  politician?: ImageWidget;
   /**
    * @default This text is fully editable and ready for your personal touch. Just click here, head over to the section window, or dive straight into the code to make changes as you see fit. Whether it's about the content, formatting, font, or anything in between, editing is just a click away.
    */
-  campaignLogo?: ImageWidget;
-  politician?: ImageWidget;
 }
 
-const PLACEMENT = {
-  left: "flex-col text-left lg:flex-row-reverse",
-  right: "flex-col text-left lg:flex-row",
-};
 
 export default function HeroFlats({
-  politicalNumber = 4564,
-  role = "mayor",
+  role,
+  politicalNumber,
   campaignLogo,
   politician,
 }: Props) {
   return (
-    <nav class="lg:mx-auto box-border bg-cookie-cat bg-primary min-h-screen w-full text-secondary">
-      <div class="flex flex-col items-center gap-8 p-16">
-        <div class="flex flex-col w-full gap-8 md:items-end items-center">
+    <nav class="lg:mx-auto box-border bg-cookie-cat bg-primary h-screen w-full text-secondary">
+      <div class="flex flex-col box-border items-center pt-32 px-8 h-full justify-between">
+        <div class="flex flex-col w-full box-border gap-8 lg:items-end items-center lg:items-end items-center">
           <Image
             width={640}
             class="w-full lg:w-1/2 object-fit"
@@ -42,45 +38,22 @@ export default function HeroFlats({
           <p class="text-4xl	uppercase">for {role}</p>
         </div>
 
-        <div>
+        <div class="flex lg:flex-row flex-col-reverse w-full justify-between lg:items-end items-center">
           <Image
-            width={640}
-            class="w-full lg:w-1/2 object-fit"
-            sizes="(max-width: 640px) 100vw, 30vw"
+            width={800}
+            class="w-full lg:w-3/5 object-fit"
+            sizes="(max-width: 800px) 100vw, 30vw"
             src={politician}
             alt={politician}
             decoding="async"
             loading="lazy"
           />
-          <div class="flex flex-col gap-4  uppercase">
+          <div class="flex flex-col gap-4 uppercase lg:items-end items-center lg:mb-16">
             <span class="text-3xl">vote</span>
-            <span class="text-5xl">{politicalNumber}</span>
+            <span class="text-7xl">{politicalNumber}</span>
           </div>
         </div>
-        <div class="lg:py-36 gap-12 md:gap-20 items-center">
-          {politician && (
-            <Image
-              width={640}
-              class="w-full lg:w-1/2 object-fit"
-              sizes="(max-width: 640px) 100vw, 30vw"
-              src={politician}
-              alt={politician}
-              decoding="async"
-              loading="lazy"
-            />
-          )}
-          {campaignLogo && (
-            <Image
-              width={640}
-              class="w-full lg:w-1/2 object-fit"
-              sizes="(max-width: 640px) 100vw, 30vw"
-              src={campaignLogo}
-              alt={campaignLogo}
-              decoding="async"
-              loading="lazy"
-            />
-          )}
-        </div>
+    
       </div>
     </nav >
   );
