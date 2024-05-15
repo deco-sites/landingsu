@@ -31,7 +31,7 @@ export default function Header({
   },
 }: Nav) {
   return (
-    <nav class="absolute left-0 top-0 h-fit z-20 w-full box-border bg-cookie-cat bg-primary">
+    <nav class="absolute left-0 top-0 h-fit z-20 w-full box-border bg-cookie-cat-full-opacity bg-primary">
       <input id="mobile-drawer-nav" type="checkbox" class="drawer-toggle" />
 
       {/* main content */}

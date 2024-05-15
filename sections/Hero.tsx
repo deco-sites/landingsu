@@ -16,7 +16,7 @@ export default function HeroFlats({
   politician,
 }: Props) {
   return (
-    <nav class="lg:mx-auto box-border bg-cookie-cat bg-primary h-screen w-full text-secondary">
+    <nav class="lg:mx-auto box-border bg-cookie-cat-full-opacity bg-primary h-screen w-full text-secondary">
       <div class="flex flex-col box-border items-center pt-32 px-8 h-full justify-between">
         <div class="flex flex-col w-full box-border gap-8 lg:items-end items-center lg:items-end items-center">
           <Image
