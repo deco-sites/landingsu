@@ -28,7 +28,7 @@ export default function HeroFlats({
             decoding="async"
             loading="lazy"
           />
-          <p class="text-4xl uppercase">forr {role}</p>
+          <p class="text-4xl uppercase">for {role}</p>
         </div>
 
         <div class="flex overflow-y-hidden lg:flex-row flex-col-reverse w-full justify-between lg:items-end items-center">
