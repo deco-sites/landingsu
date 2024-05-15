@@ -109,23 +109,18 @@ function SliderItem(
   return (
     <div
       id={id}
-      class="relative overflow-y-hidden w-full min-h-[292px]"
+      class="relative overflow-y-hidden max-w-96"
     >
-      <div class="flex flex-col justify-center gap-16 p-8 border border-base-content rounded-2xl h-full max-w-[600px]">
-        <p class="text-lg">{content?.description}</p>
-        <div class="flex items-center gap-5">
-          <Image
-            class="object-cover w-14 h-14 rounded-full"
-            alt={content?.alt}
-            src={content?.avatar || ""}
-            width={56}
-            height={56}
-          />
-          <div class="flex flex-col">
-            <p class="font-semibold text-base">{content?.name}</p>
-            <p class="text-base">{content?.position}</p>
-          </div>
-        </div>
+      <div class="flex flex-col justify-center items-center gap-8 p-8 ">
+        <Image
+          class="object-cover w-36 h-36 rounded-full shadow-lg shadow-gray-500/40"
+          alt={content?.alt}
+          src={content?.avatar || ""}
+          width={256}
+          height={256}
+        />
+        <p class="text-center leading-6">{content?.description}</p>
+        <p class="font-semibold text-base">{content?.name}</p>
       </div>
     </div>
   );
@@ -197,9 +192,9 @@ function Carousel(props: Props) {
   return (
     <div
       id={id}
-      class="min-h-min flex flex-col lg:container md:max-w-6xl lg:mx-auto mx-4 py-12 lg:py-28"
+      class="min-h-min flex flex-col items-center lg:container md:max-w-6xl lg:mx-auto mx-4 py-12 lg:py-28"
     >
-      <h2 class="text-4xl leading-snug lg:w-1/2 pb-12 lg:pb-16">
+      <h2 class="text-3xl text-center leading-snug lg:w-1/2 pb-12 lg:pb-16">
         {title}
       </h2>
       <Slider
@@ -211,7 +206,7 @@ function Carousel(props: Props) {
         {slides?.map((slide, index) => (
           <Slider.Item
             index={index}
-            class="carousel-item max-w-[600px] w-full"
+            class="carousel-item max-w-[600px]"
           >
             <SliderItem
               slide={slide}
