@@ -15,7 +15,7 @@ export interface Props {
   tagline?: string;
   image?: ImageWidget;
   placement?: "left" | "right";
-  cta?: CTA[];
+  cta?: CTA;
   disableSpacing?: {
     top?: boolean;
     bottom?: boolean;
@@ -33,78 +33,33 @@ const DEFAULT_IMAGE =
 export default function ImageWithParagraph({
   title = "Here's an intermediate size heading you can edit",
   description =
-    "This text is fully editable and ready for your personal touch. Just click here, head over to the section window, or dive straight into the code to make changes as you see fit. Whether it's about the content, formatting, font, or anything in between, editing is just a click away.",
+  "This text is fully editable and ready for your personal touch. Just click here, head over to the section window, or dive straight into the code to make changes as you see fit. Whether it's about the content, formatting, font, or anything in between, editing is just a click away.",
   tagline = "Tagline",
   image = DEFAULT_IMAGE,
   placement = "left",
   disableSpacing,
-  cta = [
-    { id: "change-me-1", href: "/", text: "Change me", style: "Outline" },
-    { id: "change-me-2", href: "/", text: "Change me", style: "Ghost" },
-  ],
+  cta = { id: "campaign-gallery", href: "/", text: "Campaign Gallery" },
 }: Props) {
   return (
-    <div class="lg:container md:max-w-6xl lg:mx-auto mx-4 text-sm">
-      <div
-        class={`flex ${
-          PLACEMENT[placement]
-        } gap-12 md:gap-20 text-left items-center z-10 ${
-          disableSpacing?.top ? "" : "pt-12 lg:pt-28"
-        } ${disableSpacing?.bottom ? "" : "pb-12 lg:pb-28"}`}
-      >
-        <div class="w-full md:w-1/2 border border-secondary rounded-lg overflow-hidden">
-          <Image
-            width={640}
-            height={640}
-            class="object-fit z-10"
-            sizes="(max-width: 640px) 100vw, 30vw"
-            src={image}
-            alt={image}
-            decoding="async"
-            loading="lazy"
-          />
-        </div>
-        <div class="w-full md:w-1/2 space-y-2 md:space-y-4 md:max-w-xl gap-4 z-10">
-          <p class="text-sm font-semibold">
-            {tagline}
-          </p>
-          <p class="text-4xl leading-snug">
-            {title}
-          </p>
-          <p class="leading-normal">
-            {description}
-          </p>
-          <div class="flex gap-3 pt-4">
-            {cta?.map((item) => (
-              <a
-                key={item?.id}
-                id={item?.id}
-                href={item?.href}
-                target={item?.href.includes("http") ? "_blank" : "_self"}
-                class={`font-normal btn btn-primary
-                  ${!item.style || item.style == "Outline" && "btn-outline"}
-                  ${item.style == "Ghost" && "btn-ghost"}
-                `}
-              >
-                {item?.text}
-                {item.style == "Ghost" && (
-                  <svg
-                    width="24"
-                    height="25"
-                    viewBox="0 0 24 25"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.70697 16.9767L15.414 11.2697L9.70697 5.56274L8.29297 6.97674L12.586 11.2697L8.29297 15.5627L9.70697 16.9767Z"
-                      fill="#18181B"
-                    />
-                  </svg>
-                )}
-              </a>
-            ))}
-          </div>
-        </div>
+    <div class="flex justify-center lg:container md:max-w-6xl lg:mx-auto mx-4 text-sm">
+      <div class="flex flex-col items-center gap-8 w-full md:w-1/2 border border-secondary rounded-lg overflow-hidden">
+        <p class="text-4xl leading-snug text-center">
+          {title}
+        </p>
+        <Image
+          width={640}
+          height={400}
+          class="object-fit z-10"
+          sizes="(max-width: 100vw) 100vw, 30vw"
+          src={image}
+          alt={image}
+          decoding="async"
+          loading="lazy"
+        />
+        <p class="leading-normal text-center">
+          {description}
+        </p>
+        <a class="w-full max-w-72 font-normal btn btn-primary btn-outline" id={cta.id} href={cta.href}>{cta.text}</a>
       </div>
     </div>
   );
