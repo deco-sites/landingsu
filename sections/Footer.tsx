@@ -24,11 +24,6 @@ export interface Social {
 }
 
 export interface Props {
-  logo?: {
-    src?: ImageWidget;
-    alt?: string;
-  };
-  links?: Column[];
   subscribe?: Subscribe;
   madeWith?: {
     label?: string;
@@ -37,49 +32,9 @@ export interface Props {
   };
 
   image?: ImageWidget;
-  copyright?: string;
-  bottomLinks?: Items[];
-  social?: Social[];
 }
 
 export default function Footer({
-  logo = {
-    src:
-      "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1527/67120bcd-936a-4ea5-a760-02ed5c4a3d04",
-    alt: "Logo",
-  },
-  links = [
-    {
-      title: "Column One",
-      items: [
-        { label: "Link One", href: "/" },
-        { label: "Link Two", href: "/" },
-        { label: "Link Three", href: "/" },
-        { label: "Link Four", href: "/" },
-        { label: "Link Five", href: "/" },
-      ],
-    },
-    {
-      title: "Column Two",
-      items: [
-        { label: "Link Six", href: "/" },
-        { label: "Link Seven", href: "/" },
-        { label: "Link Eight", href: "/" },
-        { label: "Link Nine", href: "/" },
-        { label: "Link Ten", href: "/" },
-      ],
-    },
-    {
-      title: "Column Three",
-      items: [
-        { label: "Link Eleven", href: "/" },
-        { label: "Link Twelve", href: "/" },
-        { label: "Link FourThirteenteen", href: "/" },
-        { label: "Link Fourteen", href: "/" },
-        { label: "Link Fifteen", href: "/" },
-      ],
-    },
-  ],
   subscribe = {
     title: "Sign Up",
     description:
@@ -89,62 +44,50 @@ export default function Footer({
   },
   madeWith = {
     label: "Made with",
-    src:
-      "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1527/cc202be0-af57-4b32-b9c9-d1d7dc97bf85",
+    src: "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1527/cc202be0-af57-4b32-b9c9-d1d7dc97bf85",
     href: "https://deco.cx",
   },
-  copyright = "© 2024 deco.cx. All rights reserved.",
-  bottomLinks = [
-    { label: "Privacy Policy", href: "/" },
-    { label: "Terms of Service", href: "/" },
-    { label: "Cookies Settings", href: "/" },
-  ],
-  social = [
-    { network: "Facebook", href: "" },
-    { network: "Instagram", href: "" },
-    { network: "X - Twitter", href: "" },
-    { network: "Linkedin", href: "" },
-    { network: "Youtube", href: "" },
-  ],
-
-  image = "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1527/cc202be0-af57-4b32-b9c9-d1d7dc97bf85",
+  image = "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9176/2057531e-336d-4ff7-a433-33756989efc2",
 }: Props) {
   return (
     <div class="flex justify-center w-screen bg-primary/50 bg-cookie-cat">
       <div class="lg:container mx-auto md:max-w-6xl px-4 pt-16 text-sm">
         <div class="flex flex-col items-center gap-8">
-          <h2 class="font-semibold text-3xl ">{subscribe?.title}</h2>
-          <p class="font-normal text-xl text-neutral">{subscribe.description}</p>
-          <div class="flex flex-col items-center gap-16 lg:flex-row">
+          <div class="flex flex-col items-center gap-4">
+            <h2 class="text-3xl ">
+              {subscribe?.title || "The Universe Newsletter"}{" "}
+            </h2>
+          </div>
+          <div class="flex flex-col items-center gap-8 lg:flex-row">
             <div>
               <Image
+                class="rounded-lg border-4 border-secondary"
                 src={image || ""}
-                width={100}
-                height={100}
+                width={300}
+                height={300}
                 alt={madeWith?.label}
               />
             </div>
             <div class="lg:w-[40%]">
               <form class="flex flex-col gap-4">
+                <p class="font-normal text-md text-neutral">
+                  {subscribe.description ||
+                    "Keep updated, sign up to our newsletter"}
+                </p>
                 <div class="flex gap-4">
                   <input
                     type="text"
                     placeholder="Enter your email"
-                    class="w-full input input-bordered input-primary"
+                    class="min-w-64 w-full input input-bordered input-primary"
                   />
                   <button
                     type="submit"
                     class="btn btn-outline font-normal"
                     aria-label="Subscribe"
                   >
-                    Subscribe
+                    Sign Up
                   </button>
                 </div>
-                <p
-                  class="text-xs"
-                  dangerouslySetInnerHTML={{ __html: subscribe.instructions }}
-                >
-                </p>
               </form>
             </div>
           </div>
