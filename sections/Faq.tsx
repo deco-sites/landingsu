@@ -52,11 +52,11 @@ export default function BlogPosts({
   return (
     <div class="lg:container md:max-w-6xl lg:mx-auto mx-4 text-sm py-12 lg:py-28 px-8">
       <div class="flex flex-col gap-10 justify-between">
-        <div class="flex gap-8">
-          <Image class="rounded-md border-accent border-4 object-fit" src={image} width={200} height={100}/>
-          <div class="flex-none space-y-6 lg:w-3/5">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <Image class="rounded-md border-accent border-4 object-fit" src={image} width={300} height={250}/>
+          <div class="flex flex-col items-center md:items-start space-y-6 lg:w-3/5">
             <p class="text-4xl leading-snug">{title}</p>
-            <p class="text-lg text-neutral">{description}</p>
+            <p class="text-lg text-neutral text-center md:text-start">{description}</p>
           </div>
         </div>
         <div class="flex-auto border-primary border-t">
