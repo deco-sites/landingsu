@@ -57,6 +57,10 @@ export default function Footer({
             <h2 class="text-3xl ">
               {subscribe?.title || "The Universe Newsletter"}{" "}
             </h2>
+            <p class="font-normal text-lg text-neutral">
+              {subscribe.description ||
+                "Keep updated, sign up to our newsletter"}
+            </p>
           </div>
           <div class="flex flex-col items-center gap-8 lg:flex-row">
             <div>
@@ -70,15 +74,14 @@ export default function Footer({
             </div>
             <div class="lg:w-[40%]">
               <form class="flex flex-col gap-4">
-                <p class="font-normal text-md text-neutral">
-                  {subscribe.description ||
-                    "Keep updated, sign up to our newsletter"}
-                </p>
+                  <p class="font-normal text-md text-neutral">
+                    Be part of the family
+                  </p>
                 <div class="flex flex-col md:flex-row gap-4">
                   <input
                     type="text"
                     placeholder="Enter your email"
-                    class="min-w-64 w-full input input-bordered input-primary"
+                    class="min-w-72 w-full input input-bordered input-primary"
                   />
                   <button
                     type="submit"
