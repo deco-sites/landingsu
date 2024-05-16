@@ -53,7 +53,7 @@ export default function Promises({
                   } ${index % 2 !== 0 ? "md:text-start" : "md:text-end"}`}
               >
                 <p class="uppercase text-2xl">{promise.text}</p>
-                <Image src={promise.image} width={200} height={200} alt="" />
+                <Image class="w-fit max-w-64"src={promise.image} width={200} height={200} alt="" />
               </div>
               {index !== promises.length - 1 && (
                 <div class="w-32 border-b-2 border-solid border-neutral/75"></div>
