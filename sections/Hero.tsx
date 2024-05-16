@@ -21,7 +21,7 @@ export default function HeroFlats({
         <div class="flex flex-col w-full box-border gap-8 lg:items-end items-center lg:items-end items-center">
           <Image
             width={640}
-            class="w-full lg:w-1/2 object-fit"
+            class="w-full lg:w-1/2 object-fit "
             sizes="(max-width: 640px) 100vw, 30vw"
             src={campaignLogo}
             alt={campaignLogo}
