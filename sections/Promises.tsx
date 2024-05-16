@@ -34,8 +34,8 @@ export default function Promises({
   ]
 }: Props) {
   return (
-    <div class="flex justify-center w-full box-border bg-primary/50 bg-cookie-cat">
-      oi
+    <div class="flex justify-center w-full box-border">
+      oii
     </div>
   );
 }
