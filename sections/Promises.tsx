@@ -36,20 +36,20 @@ export default function Promises({
 }: Props) {
   return (
     <div class="flex flex-col items-center w-full box-border gap-8 py-16 px-4">
-      <div class="flex flex-col items-center gap-4 md:w-1/2">
+      <div class="flex flex-col items-center gap-4 md:w-1/2 lg:w-3/4">
         <Image src={announcer} width={200} height={200} alt="" />
         <h2 class="text-3xl text-center">
           {"We don’t have merely promises we have garnet's FUTURE VISION"}
         </h2>
       </div>
-      <div class="flex flex-col items-center gap-8 box-border bg-accent/50 border-accent/75 border-4 rounded-lg md:w-1/2 py-16 px-8 shadow-lg shadow-gray">
+      <div class="flex flex-col items-center gap-8 box-border bg-accent/50 border-accent/75 border-4 rounded-lg md:w-1/2 lg:w-3/4 py-16 px-8 shadow-lg shadow-gray">
         {promises.map((promise: CampaignPromise, index: number) => {
           return (
             <>
               <div
-                class={`flex flex-col md:flex-row items-center gap-4 ${
+                class={`flex flex-col md:flex-row items-center gap-8 text-center ${
                   index % 2 !== 0 && "flex-row-reverse md:flex-row-reverse"
-                } ${index % 2 !== 0 ? "text-start" : "text-end"}`}
+                } ${index % 2 !== 0 ? "md:text-start" : "md:text-end"}`}
               >
                 <p class="uppercase text-2xl">{promise.text}</p>
                 <Image src={promise.image} width={200} height={200} alt="" />
