@@ -19,6 +19,7 @@ export interface Testimonial {
 }
 
 export interface Props {
+  sectionId: string;
   title?: string;
   slides?: Testimonial[];
   /**
@@ -39,6 +40,7 @@ export interface Props {
 }
 
 const DEFAULT_PROPS = {
+  sectionId: "depoiments",
   title: "This is where you'll put your customer testimonials",
   slides: [
     {
@@ -187,10 +189,10 @@ function Buttons() {
 
 function Carousel(props: Props) {
   const id = useId();
-  const { title, slides, interval } = { ...DEFAULT_PROPS, ...props };
+  const { title, slides, interval, sectionId } = { ...DEFAULT_PROPS, ...props };
 
   return (
-    <div class="w-full bg-primary/50 bg-cookie-cat">
+    <div id={sectionId} class="w-full bg-primary/50 bg-cookie-cat">
       <div
         id={id}
         class="min-h-min flex flex-col items-center lg:container md:max-w-8xl py-4 lg:py-8"

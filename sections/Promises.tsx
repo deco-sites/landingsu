@@ -7,6 +7,7 @@ export interface CampaignPromise {
 }
 
 export interface Props {
+  sectionId: string;
   announcer: ImageWidget;
   title: string;
 
@@ -14,6 +15,7 @@ export interface Props {
 }
 
 export default function Promises({
+  sectionId = "promises",
   announcer = "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9176/2057531e-336d-4ff7-a433-33756989efc2",
   title = "We don’t have merely promises",
   promises = [
@@ -35,21 +37,20 @@ export default function Promises({
   ],
 }: Props) {
   return (
-    <div class="flex flex-col items-center w-full box-border gap-8 py-16 px-4">
-      <div class="flex flex-col items-center gap-4 md:w-1/2 lg:w-3/4">
+    <div id={sectionId} class="flex flex-col items-center w-full box-border gap-8 py-16 px-4">
+      <div class="flex flex-col items-center gap-4 lg:w-3/4">
         <Image src={announcer} width={200} height={200} alt="" />
         <h2 class="text-3xl text-center">
-          {"We don’t have merely promises we have garnet's FUTURE VISION"}
+          {title}
         </h2>
       </div>
-      <div class="flex flex-col items-center gap-8 box-border bg-accent/50 border-accent/75 border-4 rounded-lg md:w-1/2 lg:w-3/4 py-16 px-8 shadow-lg shadow-gray">
+      <div class="flex flex-col items-center gap-8 box-border bg-accent/50 border-accent/75 border-4 rounded-lg lg:w-3/4 py-16 px-8 shadow-lg shadow-gray">
         {promises.map((promise: CampaignPromise, index: number) => {
           return (
             <>
               <div
-                class={`flex flex-col md:flex-row items-center gap-8 text-center ${
-                  index % 2 !== 0 && "flex-row-reverse md:flex-row-reverse"
-                } ${index % 2 !== 0 ? "md:text-start" : "md:text-end"}`}
+                class={`flex flex-col md:flex-row items-center gap-8 text-center ${index % 2 !== 0 && "flex-row-reverse md:flex-row-reverse"
+                  } ${index % 2 !== 0 ? "md:text-start" : "md:text-end"}`}
               >
                 <p class="uppercase text-2xl">{promise.text}</p>
                 <Image src={promise.image} width={200} height={200} alt="" />

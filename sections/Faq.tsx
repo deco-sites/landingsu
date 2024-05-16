@@ -17,7 +17,7 @@ export interface Props {
 const DEFAULT_IMAGE =
   "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/4763/682eb374-def2-4e85-a45d-b3a7ff8a31a9";
 
-export default function BlogPosts({
+export default function FAQ({
   title = "FAQs",
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
   image = "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9176/f1c9c67e-ff84-4e7a-afd7-a6f45f047529",
@@ -50,7 +50,7 @@ export default function BlogPosts({
   ],
 }: Props) {
   return (
-    <div class="lg:container md:max-w-6xl lg:mx-auto mx-4 text-sm py-12 lg:py-28 px-8">
+    <div id="faq" class="lg:container md:max-w-6xl lg:mx-auto mx-4 text-sm py-12 lg:py-28 px-8">
       <div class="flex flex-col gap-10 justify-between">
         <div class="flex flex-col md:flex-row items-center gap-8">
           <Image class="rounded-md border-accent border-4 object-fit" src={image} width={300} height={250}/>

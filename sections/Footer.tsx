@@ -29,7 +29,7 @@ export default function Footer({
   image = "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9176/2057531e-336d-4ff7-a433-33756989efc2",
 }: Props) {
   return (
-    <div class="flex justify-center w-full box-border bg-primary/50 bg-cookie-cat">
+    <div id="footer" class="flex justify-center w-full box-border bg-primary/50 bg-cookie-cat">
       <div class="lg:container mx-auto md:max-w-6xl px-4 pt-16 text-sm">
         <div class="flex flex-col items-center gap-8">
           <div class="flex flex-col items-center gap-4">

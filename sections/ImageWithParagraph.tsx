@@ -27,7 +27,7 @@ export default function ImageWithParagraph({
   cta = { id: "campaign-gallery", href: "/", text: "Campaign Gallery" },
 }: Props) {
   return (
-    <div class="flex justify-center py-16 lg:container md:max-w-6xl lg:mx-auto mx-4 text-sm">
+    <div id="campaign" class="flex justify-center py-16 lg:container md:max-w-6xl lg:mx-auto mx-4 text-sm">
       <div class="flex flex-col items-center gap-8 w-full md:w-3/4 border border-secondary rounded-lg overflow-hidden">
         <p class="text-3xl leading-snug text-center">
           {title}
