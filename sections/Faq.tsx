@@ -50,7 +50,7 @@ export default function BlogPosts({
   ],
 }: Props) {
   return (
-    <div class="lg:container md:max-w-6xl lg:mx-auto mx-4 text-sm py-12 lg:py-28">
+    <div class="lg:container md:max-w-6xl lg:mx-auto mx-4 text-sm py-12 lg:py-28 px-8">
       <div class="flex flex-col gap-10 justify-between">
         <div class="flex gap-8">
           <Image class="rounded-md border-accent border-4 object-fit" src={image} width={200} height={100}/>
