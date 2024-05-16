@@ -1,13 +1,6 @@
 import type { ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
 
-export interface CTA {
-  id?: string;
-  href: string;
-  text: string;
-  outline?: boolean;
-}
-
 export interface Question {
   title: string;
   /** @format rich-text */
@@ -17,8 +10,8 @@ export interface Question {
 export interface Props {
   title?: string;
   description?: string;
-  cta?: CTA;
   questions?: Question[];
+  image?: ImageWidget;
 }
 
 const DEFAULT_IMAGE =
@@ -26,9 +19,8 @@ const DEFAULT_IMAGE =
 
 export default function BlogPosts({
   title = "FAQs",
-  description =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-  cta = { id: "change-me", href: "/", text: "Change me", outline: true },
+  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+  image = "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9176/f1c9c67e-ff84-4e7a-afd7-a6f45f047529",
   questions = [
     {
       title: "Question #1 text goes here",
@@ -59,25 +51,13 @@ export default function BlogPosts({
 }: Props) {
   return (
     <div class="lg:container md:max-w-6xl lg:mx-auto mx-4 text-sm py-12 lg:py-28">
-      <div class="flex flex-col lg:flex-row gap-10 lg:gap-20 justify-between">
-        <div class="flex-none space-y-6 lg:w-2/5">
-          <p class="text-4xl leading-snug">
-            {title}
-          </p>
-          <p class="text-lg">
-            {description}
-          </p>
-          <a
-            key={cta?.id}
-            id={cta?.id}
-            href={cta?.href}
-            target={cta?.href.includes("http") ? "_blank" : "_self"}
-            class={`font-normal btn btn-primary ${
-              cta.outline && "btn-outline"
-            }`}
-          >
-            {cta?.text}
-          </a>
+      <div class="flex flex-col gap-10 justify-between">
+        <div class="flex gap-8">
+          <Image class="rounded-md border-accent border-4 object-fit" src={image} width={200} height={100}/>
+          <div class="flex-none space-y-6 lg:w-3/5">
+            <p class="text-4xl leading-snug">{title}</p>
+            <p class="text-lg text-neutral">{description}</p>
+          </div>
         </div>
         <div class="flex-auto border-primary border-t">
           {questions?.map((question) => (
@@ -103,8 +83,7 @@ export default function BlogPosts({
               <p
                 class="leading-relaxed mb-6 group-open:animate-fadeIn"
                 dangerouslySetInnerHTML={{ __html: question.answer }}
-              >
-              </p>
+              ></p>
             </details>
           ))}
         </div>

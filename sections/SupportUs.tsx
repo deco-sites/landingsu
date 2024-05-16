@@ -25,7 +25,7 @@ export default function SupportUs({
   },
 }: Props) {
   return (
-    <div class="flex flex-col items-center w-full bg-primary/50 bg-cookie-cat py-8">
+    <div class="flex flex-col items-center w-full bg-primary/50 bg-cookie-cat py-8 shadow-md shadow-gray">
       <div class="flex flex-col items-center gap-8 md:w-1/2">
         <div class="flex flex-col items-center gap-4">
           <h2 class="text-3xl w-fit">{title}</h2>

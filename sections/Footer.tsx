@@ -74,7 +74,7 @@ export default function Footer({
                   {subscribe.description ||
                     "Keep updated, sign up to our newsletter"}
                 </p>
-                <div class="flex gap-4">
+                <div class="flex flex-col md:flex-row gap-4">
                   <input
                     type="text"
                     placeholder="Enter your email"
