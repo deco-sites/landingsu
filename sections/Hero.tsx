@@ -21,27 +21,27 @@ export default function HeroFlats({
         <div class="flex flex-col w-full box-border gap-8 lg:items-end items-center lg:items-end items-center">
           <Image
             width={640}
-            class="w-full lg:w-1/2 z-20 object-fit "
+            class="w-full lg:w-1/2 object-fit "
             sizes="(max-width: 640px) 100vw, 30vw"
             src={campaignLogo}
             alt={campaignLogo}
             decoding="async"
             loading="lazy"
           />
-          <p class="text-4xl uppercase z-20 ">for {role}</p>
+          <p class="text-4xl uppercase ">for {role}</p>
         </div>
 
         <div class="flex overflow-y-hidden lg:flex-row flex-col-reverse w-full justify-between lg:items-end items-center">
           <Image
             width={800}
-            class="w-full lg:w-3/5 z-20 object-fit"
+            class="w-full lg:w-3/5 object-fit"
             sizes="(max-width: 800px) 100vw, 30vw"
             src={politician}
             alt={politician}
             decoding="async"
             loading="lazy"
           />
-          <div class="z-20 flex flex-col gap-4 uppercase lg:items-end items-center lg:mb-16">
+          <div class="flex flex-col gap-4 uppercase lg:items-end items-center lg:mb-16">
             <span class="text-3xl">vote</span>
             <span class="text-7xl">{politicalNumber}</span>
           </div>
