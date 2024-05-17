@@ -44,7 +44,7 @@ export default function Promises({
           {title}
         </h2>
       </div>
-      <div class="flex flex-col items-center gap-8 box-border bg-accent/50 border-accent/75 border-4 rounded-lg lg:w-3/4 py-16 px-8 shadow-lg shadow-gray">
+      <div class="flex flex-col items-center gap-8 box-border bg-accent/50 border-accent/75 border-4 rounded-lg md:w-4/5 lg:w-3/4 py-16 px-8 shadow-lg shadow-gray">
         {promises.map((promise: CampaignPromise, index: number) => {
           return (
             <>
